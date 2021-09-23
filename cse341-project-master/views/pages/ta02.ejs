@@ -2,20 +2,40 @@
 <html>
 
 <head>
-  <% include ../includes/header.ejs %>
+  <%- include ../includes/header.ejs %>
 </head>
 
 <body>
-  <% include ../includes/nav.ejs %>
+  <%- include ../includes/nav.ejs %>
     <div class="jumbotron text-center">
       <div class="container">
         <h1>
           <%= title %>
         </h1>
-        <p>This is the placeholder for Team Activity 02</p>
+
+        
+
       </div>
     </div>
     <div class="container">
+      <form action="/ta02/addUser" method="POST">
+        <input type="text" name="username">
+        <button type="submit">Add User</button>
+      </form>
+
+      <div class="display-names">
+          <ul>
+              <% for(let user of users) { %>
+              <li> <%= user %> </li>
+              <% } %>
+          </ul>
+      </div>
+
+      <h3>Remove User</h3>
+      <form action="/ta02/removeUser" method="POST">
+        <input type="text" name="removeUser">
+        <button type="submit">Remove User</button>
+      </form>
 
     </div>
 
